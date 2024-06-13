@@ -1,20 +1,11 @@
-# Nomeclatura da pipeline
 name: Run Basic Tests
-
-  # Momento em que será executada
 on:
   pull_request:
     branches: [master]
-
 jobs: 
-  #O que será feito na pipeline
-  #Só teremos um job =  rodar os testes
   cypress-run:
-    #Maquina que será executada
     runs-on: ubuntu-latest
-      #Passo a passo para rodar os testes
       steps:
-        #Clone do projeto
         - name: Checkout/Clone do projeto
           uses: actions/checkout@v3
 
