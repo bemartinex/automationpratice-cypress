@@ -1,0 +1,5 @@
+{
+    "invalidEmail": "testegmail.com",
+    "validPassword": "123456",
+    "invalidPassword": "12345"
+}
