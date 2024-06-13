@@ -28,3 +28,9 @@ jobs:
           record: true
         env: 
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      
+      - name: Upload relatorio
+        uses: actions/upload-artifact@v3
+        with:
+          name: Relatório
+          path: cypress/reports/html
