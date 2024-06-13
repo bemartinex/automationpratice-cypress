@@ -16,8 +16,6 @@ describe('Cadastro de usuário', () => {
         if(element != 'desktop'){
             cy.viewport(element)
         }
-
-
         home_page.accessRegisterPage()
     })
 
@@ -61,7 +59,7 @@ describe('Cadastro de usuário', () => {
         //Então é exibido uma mensagem informativa para preenchemento
         cadastro_usuario_page.checkFillFieldMessage('O campo senha deve ter pelo menos 6 dígitos')
     })
-    
+
     it('Validar campo senha inválida', () => {
         //Dado que o usuario acessa a pagina de Login (beforeEach)
         //Quando preenche a senha com menos de 6 digitos
