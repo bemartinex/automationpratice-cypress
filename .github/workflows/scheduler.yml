@@ -1,0 +1,36 @@
+# Nomeclatura da pipeline
+name: Run Basic Tests
+
+# Momento em que será executada
+on:
+  schedule:
+    - cron: '0 20 * 6-8 1-5'
+
+jobs: 
+#O que será feito na pipeline
+#Só teremos um job =  rodar os testes
+  cypress-run:
+  #Maquina que será executada
+    runs-on: windows-latest
+    #Passo a passo para rodar os testes
+    steps:
+        #Clone do projeto
+      - name: Checkout/Clone do projeto
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias do projeto
+        run: npm install  
+
+        #Execução e configuração do projeto
+      - name: Run tests
+        uses: cypress-io/github-action@v5
+        with: 
+          record: true
+        env: 
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      
+      - name: Upload relatorio
+        uses: actions/upload-artifact@v3
+        with:
+          name: Relatório
+          path: cypress/reports/html
